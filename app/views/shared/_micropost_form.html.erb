@@ -1,5 +1,4 @@
 <%= form_with(model: @micropost, local: true) do |f| %>
-  <%# フォームを作る時に参照した@micropostの内容がobjectというローカル変数にが代入され、パーシャル先で参照される　%>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
@@ -9,6 +8,8 @@
     <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
   </span>
 <% end %>
+<%# フォームを作る時に参照した@micropostの内容がobjectというローカル変数にが代入され、パーシャル先で参照される　%>
+
 
 <script type="text/javascript">
   $("#micropost_image").bind("change", function() {
