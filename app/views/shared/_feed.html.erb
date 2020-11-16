@@ -1,0 +1,16 @@
+<% if @feed_items.any? %>
+  <ol class="microposts">
+    <%= render @feed_items %>
+  </ol>
+<% 
+=begin
+%>
+will_paginateにcontrollerとactionパラメータを明示的に渡している。
+渡さないとmicroposts_controllerのindexアクションにリクエストが飛んでしまい
+エラーが起こる。
+<%
+=end
+%>
+  <%= will_paginate @feed_items,
+              params: {controller: :static_pages, action: :home } %>
+<% end %>
